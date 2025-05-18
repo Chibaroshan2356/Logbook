@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <style>
+        body {
+            background-color: rgb(27, 151, 126);
+            border: 5px solid black; 
+            border-radius: 20px ;
+            margin: 20px; 
+            padding: 20px; 
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px; 
+        }
+        .form-group label {
+            width: 250px; 
+            text-align: left;
+            font-weight: bold;
+        }
+        .form-group input {
+            flex: 1; 
+            padding: 5px;
+        }
+        table {
+            width: 100%;
+            border: 1px solid black;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let dob = document.getElementById("dob").value;
+            let eid = document.getElementById("eid").value;
+            let blood = document.getElementById("blood").value;
+            
+            let namePattern = /^[A-Z][a-zA-Z ]*$/;
+            let dobPattern = /^\d{2}-\d{2}-\d{4}$/;
+            let eidPattern = /^[a-z]+\.[0-9a-z]+@kongu\.edu$/;
+            let bloodPattern = /^(A|B|AB|O)[+-]$/;
+
+            if (!namePattern.test(name)) {
+                alert("Name must start with a capital letter and contain only letters and spaces.");
+                return false;
+            }
+            if (!dobPattern.test(dob)) {
+                alert("DOB must be in the format: DD-MM-YYYY (e.g., 04-01-2006)");
+                return false;
+            }
+            if (!eidPattern.test(eid)) {
+                alert("E-mail ID must be in the format: name.roll@kongu.edu");
+                return false;
+            }
+            if (!bloodPattern.test(blood)) {
+                alert("Blood group must be uppercase and in the format AB+, O-, etc.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <center><h1>BIO-DATA</h1></center>
+    <section>
+        <div class="form-group">
+            <label for="name">1. Name: </label>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="dob">2. Date of Birth:</label>
+            <input type="text" id="dob" name="dob">
+        </div>
+
+        <div class="form-group">
+            <label for="eid">3. E-mail ID: </label>
+            <input type="text" id="eid" name="eid">
+        </div>
+
+        <div class="form-group">
+            <label for="com">4. Community and Caste:</label>
+            <input type="text" id="com" name="com">
+        </div>
+
+        <div class="form-group">
+            <label for="blood">5. Blood Group:</label>
+            <input type="text" id="blood" name="blood">
+        </div>
+
+        <div class="form-group">
+            <label for="gud">6. Name of the Father/Guardian permanent address: </label>
+            <input type="text" id="gud" name="gud">
+        </div>
+
+        <div class="form-group">
+            <label for="occ">7. Occupation & Annual Income of the Father/Guardian:</label>
+            <input type="text" id="occ" name="occ">
+            </div>
+
+            <div class="form-group">
+            <label for="nat">8. Native place & District: </label>
+            <input type="text" id="nat" name="nat">
+            </div>
+
+            <div class="form-group">
+            <label for="local">9. Local Guardian Address & Ph.No.:</label>
+            <input type="text" id="local" name="local">
+            </div>
+
+            <div class="form-group">
+            <label for="exam">10. Exam passed:</label>
+            <input type="text" id="exam" name="exam">
+        </div>
+    </section>
+
+    <section>
+        <table cellspacing="0px">
+            <tr>
+                <th></th>
+                <th>Name and Address of the Institution, Board/University</th>
+                <th>Max Marks</th>
+                <th>Marks Secured</th>
+                <th>% of marks</th>
+                <th>Year of Passing</th>
+            </tr>
+            <tr>
+                <th>SSLC</th>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+
+            <tr>
+                <th>H.Sc.(Academic/Vocational)</th>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+
+            <tr>
+                <th>UG Degree</th>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+
+            <tr>
+                <th>PG Degree</th>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+                <td><input type="text"></td>
+            </tr>
+            </table>
+    </section>
+
+    <section>
+        <div class="form-group">
+            <label for="mode">10.Mode of admission:</label>
+            <input type = "radio" name = "mode" value = "Counselling">Counselling
+            <input type = "radio" name = "mode" value = "Mgt">Mgt
+            <input type = "radio" name = "mode" value = "Nri">NRI
+            <input type = "radio" name = "mode" value = "others">Others
+        </div>
+    </section>
+
+    <br>
+    <center>
+        <a href="form.html"><button name="next">Previous</button></a>
+        <a href="form1.html" onclick="return validateForm();"><button name="next">Next</button></a>
+        </center>
+</body>
+</html>

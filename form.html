@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+    <style>
+        body {
+            background-color: rgb(27, 151, 126);
+            border: 5px solid black;
+            border-radius: 20px;
+            margin: 20px;
+            padding: 20px;
+        }
+        .box {
+            border: 1px solid black;
+            width: 100px;
+            right: 40px;
+            position: absolute;
+            top: 40px;
+            text-align: center;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            width: 250px;
+            text-align: left;
+            font-weight: bold;
+        }
+        .form-group input {
+            flex: 1;
+            padding: 5px;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let name = document.getElementById("name").value;
+            let roll = document.getElementById("roll").value;
+            let branch = document.getElementById("branch").value;
+            let period = document.getElementById("period").value;
+            let periodTo = document.getElementById("period_to").value;
+            
+            let namePattern = /^[A-Z][a-zA-Z ]*$/;
+            let rollPattern = /^[0-9]{2}[A-Z]{3}[0-9]{3}$/;
+            
+            if (!namePattern.test(name)) {
+                alert("Name must start with a capital letter and contain only letters and spaces.");
+                return false;
+            }
+            if (!rollPattern.test(roll)) {
+                alert("Roll number must be in the format: 23ITR017");
+                return false;
+            }
+            if (!namePattern.test(branch)) {
+                alert("Branch must start with a capital letter and contain only letters and spaces.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <section>
+        <div class="box">
+            <p>AC - 04<br> Rev - 1<br> 01-06-2017</p>
+        </div>
+    </section>
+    <br><br><br><br>
+
+    <section>
+        <section>
+            <img src="kec.png" width="100" height="100" align="left">
+        </section>
+        <section>
+            <img src="kt1.png" width="100" height="100" align="right">
+        </section>
+        <center><h1>KONGU ENGINEERING COLLEGE</h1>
+        <p>(Autonomous)</p></center>
+        <center><h2>THOPPUPALAYAM (Po), PERUNDURAI (Tk)<br>
+            ERODE - 638 060 TAMILNADU INDIA</h2>
+        </center>
+    </section>
+    <center>
+        <section>
+            <h1>STUDENT RECORD</h1>
+            <img src="profile.png" width="100" height="100">
+        </section>
+    </center>
+
+    <section>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+        </div>
+
+        <div class="form-group">
+            <label for="roll">Reg No.:</label>
+            <input type="text" id="roll" name="roll">
+        </div>
+
+        <div class="form-group">
+            <label for="branch">PROGRAMME, BRANCH & SECTION:</label>
+            <input type="text" id="branch" name="branch">
+        </div>
+
+        <div class="form-group">
+            <label for="period">PERIOD OF STUDY:</label>
+            <input type="text" id="period" name="period"> 
+            <center><label for="period_to">TO</label> </center>
+            <input type="text" id="period_to" name="period_to">
+        </div>
+    </section>
+    <br>
+    <center>
+        <a href="bio.html" onclick="return validateForm();"><button name="next">Next</button></a>
+    </center>
+</body>
+</html>
